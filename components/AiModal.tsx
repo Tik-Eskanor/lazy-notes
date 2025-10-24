@@ -48,12 +48,12 @@ export default function AiModal({ note }: { note: Note }) {
                             <div className="font-bold text-blue-400 text-sm tracking-wide">Your note</div>
                             <X size={20} className='border cursor-pointer rounded' onClick={() => router.push(`/?noteId=${note.id}`)} />
                         </div>
-                        <div className="border p-2 text-xs rounded">
+                        <div className="border p-2 text-xs rounded max-h-[500px] overflow-y-auto">
                             {note?.text}
                         </div>
                     </div>
 
-                    <div className="flex-1 max-h-[1000px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg">
+                    <div className="flex-1 max-h-[500px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg overflow-y-auto">
                         {isPending ? <span className='flex gap-1 items-center'>Thinking <Loader2 size={15} className='animate-spin' /></span> : aiResponse}
                     </div>
 
