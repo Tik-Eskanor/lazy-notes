@@ -8,7 +8,7 @@ export default function page() {
       <Card className='w-full max-w-md'>
         <CardHeader className='mb-4'>
           <CardTitle className='text-center text-3xl'>
-            Login
+            <div className='mb-4'>Login</div>
             <LoginForm />
           </CardTitle>
         </CardHeader>

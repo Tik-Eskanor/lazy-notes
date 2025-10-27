@@ -26,15 +26,15 @@ export default function SignupForm() {
 
     return (
         <form action={signUpAction}>
-            <CardContent className='grid w-full items-center gap-4'>
+            <CardContent className='grid w-full items-center gap-4 p-0'>
                 <div className='flex flex-col space-y-1.5'>
                     <Label htmlFor='email'>Email</Label>
-                    <Input type='email' name='email' placeholder='Enter your email' required />
+                    <Input type='email' name='email' className='font-normal' placeholder='Enter your email' required />
                 </div>
 
                 <div className='flex flex-col space-y-1.5'>
                     <Label htmlFor='password'>Password</Label>
-                    <Input type='password' name='password' placeholder='Enter your password' required />
+                    <Input type='password' name='password' className='font-normal' placeholder='Enter your password' required />
                 </div>
 
             </CardContent>
