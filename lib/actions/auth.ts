@@ -54,7 +54,7 @@ export async function signUp(prevState: unknown, formData: FormData) {
             password: formData.get('password') as string,
             options: {
                 // This URL must be in your Additional Redirect URLs allow list
-                emailRedirectTo: process.env.NEXT_PUBLIC_BASE_URL
+                emailRedirectTo: process.env.NEXT_PUBLIC_BASE_URL + "/login"
             },
         }
 

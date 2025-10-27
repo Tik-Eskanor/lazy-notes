@@ -26,7 +26,7 @@ export default function LoginForm() {
 
     return (
         <form action={loginAction}>
-            <CardContent className='grid w-full items-center gap-4'>
+            <CardContent className='grid w-full items-center gap-4 p-0'>
                 <div className='flex flex-col space-y-1.5'>
                     <Label htmlFor='email'>Email</Label>
                     <Input type='email' name='email' className='font-normal' placeholder='Enter your email' required />
