@@ -53,12 +53,12 @@ export default function AiModal({ note }: { note: Note }) {
                         </div>
                     </div>
 
-                    <div className="flex-1 max-h-[500px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg overflow-y-auto">
+                    <pre className="flex-1 max-h-[500px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg overflow-y-auto">
                         {isPending ? <span className='flex gap-1 items-center'>Thinking <Loader2 size={15} className='animate-spin' /></span> : aiResponse}
-                    </div>
+                    </pre>
 
 
-                    <div className='mb-5 mt-1 flex justify-end whitespace-pre-wrap'>
+                    <div className='mb-5 mt-1 flex justify-end'>
                         {aiResponse !== "Ai will respond" && <button
                             onClick={createNoteFunction} className='bg-blue-500 text-white text-xs py-[6px] px-2 rounded cursor-pointer'> {isCreatePending ? <Loader2 size={15} className='animate-spin' /> : "Save as new note"} </button>}
                     </div>
