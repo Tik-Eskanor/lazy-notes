@@ -53,9 +53,9 @@ export default function AiModal({ note }: { note: Note }) {
                         </div>
                     </div>
 
-                    <pre className="flex-1 max-h-[500px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg overflow-y-auto">
+                    <div className="flex-1 max-h-[500px] px-2 py-3 text-sm border rounded-bl-lg rounded-br-lg overflow-y-auto whitespace-pre-wrap ">
                         {isPending ? <span className='flex gap-1 items-center'>Thinking <Loader2 size={15} className='animate-spin' /></span> : aiResponse}
-                    </pre>
+                    </div>
 
 
                     <div className='mb-5 mt-1 flex justify-end'>
