@@ -52,6 +52,10 @@ export async function signUp(prevState: unknown, formData: FormData) {
         const dataObj = {
             email: formData.get('email') as string,
             password: formData.get('password') as string,
+            options: {
+                // This URL must be in your Additional Redirect URLs allow list
+                emailRedirectTo: process.env.NEXT_PUBLIC_BASE_URL
+            },
         }
 
         const { auth } = await createClient()
