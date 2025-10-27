@@ -58,7 +58,7 @@ export default function AiModal({ note }: { note: Note }) {
                     </div>
 
 
-                    <div className='mb-5 mt-1 flex justify-end'>
+                    <div className='mb-5 mt-1 flex justify-end whitespace-pre-wrap'>
                         {aiResponse !== "Ai will respond" && <button
                             onClick={createNoteFunction} className='bg-blue-500 text-white text-xs py-[6px] px-2 rounded cursor-pointer'> {isCreatePending ? <Loader2 size={15} className='animate-spin' /> : "Save as new note"} </button>}
                     </div>
