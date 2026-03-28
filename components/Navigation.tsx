@@ -22,7 +22,7 @@ export function Navigation() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <div className='sticky top-0 z-[10] bg-[#01051e]'>
+        <div className=' bg-[#01051e]'>
             <div className="container mx-auto px-3 md:px-6 flex h-18  items-center justify-between">
                 {/* === Logo/Branding Section - Left Side === */}
                 <Link href="/" className="text-white roboto-regular block mt-3 border rounded-full border-gray-700 px-3 pb-2 p-1 font-bold  text-2xl  transition-colors">
