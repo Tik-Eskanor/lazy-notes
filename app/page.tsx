@@ -12,7 +12,7 @@ export default async function page() {
       <main>
         <section id="home" className="relative">
           <div className="blob-top"></div>
-          <div className="container mx-auto px-10">
+          <div className="container mx-auto px-10 mt-5">
             <div className="flex flex-col items-center md:flex-row mt-5 relative z-10">
               <div className="text-center md:text-left mb-3 md:w-1/2 md:pr-10 ">
                 <h1 className="title text-4xl md:text-7xl text-white">Lazy Note Taker</h1>
