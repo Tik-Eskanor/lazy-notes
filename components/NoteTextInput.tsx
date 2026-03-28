@@ -29,21 +29,16 @@ export default function NoteTextInput({ notes }: Prop) {
     const [state, formAction, isPending] = useActionState(createNote, null)
 
 
-
-
-
-
     useEffect(() => {
         formReset()
         setTexts(noteData?.text)
-
         setCurrentUrl(window.location.href);
     }, [noteId])
 
     useEffect(() => {
         if (state?.success) {
             setTexts("")
-            router.push("/")
+            router.push("/dashboard")
             toast.success("New note added")
         }
     }, [state])
@@ -56,7 +51,7 @@ export default function NoteTextInput({ notes }: Prop) {
 
     function clearNote() {
         formReset()
-        router.push("/")
+        router.push("/dashboard")
         setTexts("")
     }
 

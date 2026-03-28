@@ -46,7 +46,7 @@ export default function AiModal({ note }: { note: Note }) {
                     <div>
                         <div className='flex justify-between items-center mb-[6px] '>
                             <div className="font-bold text-blue-400 text-sm tracking-wide">Your note</div>
-                            <X size={20} className='border cursor-pointer rounded' onClick={() => router.push(`/?noteId=${note.id}`)} />
+                            <X size={20} className='border cursor-pointer rounded' onClick={() => router.push(`/dashboard?noteId=${note.id}`)} />
                         </div>
                         <div className="border p-2 text-xs rounded max-h-[500px] overflow-y-auto">
                             {note?.text}

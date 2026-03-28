@@ -29,7 +29,7 @@ export default function SidebarGroupContent({ notes }: Prop) {
 
     useEffect(() => {
         if (state?.success) {
-            router.push("/")
+            router.push("/dashboard")
             toast.success("Note deleted")
         }
     }, [state])
@@ -76,7 +76,7 @@ export default function SidebarGroupContent({ notes }: Prop) {
                         <div className={`flex px-3 py-2 justify-between ${noteId === item.id && "bg-blue-500 text-white font-bold"} hover:bg-black/40 rounded-md cursor-pointer`}>
                             <div
                                 onClick={() => {
-                                    router.push(`/?noteId=${item.id}`)
+                                    router.push(`/dashboard?noteId=${item.id}`)
                                     router.refresh()
                                 }} className="flex-1">
                                 <div className="text-sm">{item.text.substring(0, 20)}...</div>

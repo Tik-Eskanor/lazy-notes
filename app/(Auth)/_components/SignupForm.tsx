@@ -20,7 +20,7 @@ export default function SignupForm() {
         }
         else if (state?.errorMessage === null) {
             toast.success("Signed Up, Please check your email")
-            router.replace("/")
+            router.replace("/login")
         }
     }, [state])
 

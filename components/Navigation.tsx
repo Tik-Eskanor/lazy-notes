@@ -1,0 +1,83 @@
+// components/MainNav.tsx
+'use client';
+
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+
+
+// Define the menu links
+const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/#featured', label: 'Features' },
+    { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/#blog', label: 'Blog' },
+    { href: '/#contact', label: 'Contact us' },
+];
+
+export function Navigation() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+    return (
+        <div className='sticky top-0 z-[10] bg-[#01051e]'>
+            <div className="container mx-auto px-3 md:px-6 flex h-18  items-center justify-between">
+                {/* === Logo/Branding Section - Left Side === */}
+                <Link href="/" className="text-white roboto-regular block mt-3 border rounded-full border-gray-700 px-3 pb-2 p-1 font-bold  text-2xl  transition-colors">
+                    <span className='text-color-secondary'>Lazy</span>Notes
+                </Link>
+
+                {/* === Desktop Navigation - Right Side === */}
+                <nav className="hidden items-center gap-4 md:flex bg-foreground-light rounded-3xl overflow-hidden">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            // Added vertical padding here to make links bigger on hover
+                            className="px-4 py-[10px]  text-white/80  roboto-regular rounded-3xl transition-all duration-500 hover:bg-color-secondary  hover:text-white/60 tracking-wider"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
+
+                <div className="hidden md:block">
+                    <Link href="/dashboard" className='text-sm px-5 py-[10px] poppins-medium rounded duration-500 roboto-regula transiton-all text-white font-bold bg-color-secondary hover:text-black/80 hover:bg-white/80'>Free Trial</Link>
+                </div>
+
+                {/* === Mobile Menu Button (Visible on Mobile) === */}
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="md:hidden text-white/80" // Hide button on desktop
+                    onClick={toggleMenu}
+                    aria-label="Toggle Menu"
+                >
+                    {isMenuOpen ? <X className='!size-6' /> : <Menu className="!size-6" />}
+                </Button>
+            </div>
+
+            {/* Mobile Menu Flyout with Smooth Transition  */}
+
+            <div
+                className={`md:hidden overflow-hidden transition-max-height duration-500 ease-in-out ${isMenuOpen ? 'max-h-96 border-t' : 'max-h-0'
+                    }`}
+            >
+                <nav className="flex flex-col items-start !p-4">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={toggleMenu}
+                            className="inline  py-2 px-2 text-white/80 roboto-regular rounded-3xl transition-all duration-500 hover:bg-white/80 hover:text-black/60 tracking-wider"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
+            </div>
+        </div>
+    );
+}

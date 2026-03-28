@@ -6,6 +6,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-color-secondary: var(--color-tomato);
+  --color-color-primary-dark: var(--color-primary-dark);
+  --color-color-primary-light: var(--color-primary-light);
+  --color-color-gray: var(--color-gray);
+  --color-color-blob: var(--color-blob);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -47,6 +54,13 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+  --color-tomato: #ff7d3b;
+  --color-primary-dark: #010417;
+  --color-primary-light: #020726;
+  --color-gray: #333;
+  --color-blob: #A427DF;
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -79,7 +93,7 @@
 }
 
 [data-theme='dark'] {
-  --background: oklch(0.145 0 0);
+  --background: #01051e;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -102,7 +116,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: #01051e;
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -119,6 +133,26 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  .btn {
+    @apply bg-color-secondary px-9 py-3 rounded-md hover:opacity-80 ease-in duration-200 capitalize;
+  }
+
+  .card-btn {
+    @apply w-full px-9 py-3 bg-color-primary-dark rounded-md capitalize font-bold hover:bg-color-secondary ease-in duration-200;
+  }
+
+  .title {
+    @apply text-3xl md:text-5xl font-bold leading-snug mb-4;
+  }
+
+  .blob-top {
+    @apply w-80 h-80 bg-color-blob rounded-full absolute top-0 -left-5 blur-2xl opacity-30 overflow-hidden;
+  }
+
+  .blob-bottom {
+    @apply w-80 h-80 bg-color-secondary rounded-full absolute bottom-10 right-0 blur-2xl opacity-30 overflow-hidden;
   }
 }
 

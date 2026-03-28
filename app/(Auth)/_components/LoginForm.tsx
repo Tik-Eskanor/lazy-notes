@@ -20,7 +20,7 @@ export default function LoginForm() {
         }
         else if (state?.errorMessage === null) {
             toast.success("Logged In")
-            router.replace("/")
+            router.replace("/dashboard")
         }
     }, [state])
 
