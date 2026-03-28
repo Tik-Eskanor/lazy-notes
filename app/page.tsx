@@ -15,9 +15,9 @@ export default async function page() {
           <div className="container mx-auto px-10">
             <div className="flex flex-col items-center md:flex-row mt-5 relative z-10">
               <div className="text-center md:text-left mb-3 md:w-1/2 md:pr-10 ">
-                <h1 className="title text-5xl md:text-7xl text-white">Lazy Note Taker</h1>
+                <h1 className="title text-4xl md:text-7xl text-white">Lazy Note Taker</h1>
                 <p className="leading-relaxed mb-10 text-white/60 max-w-[400px] mx-auto md:mx-0">It's more than just a digital notepad it's your personal AI thought partner designed to make every single note more valuable.</p>
-                <button className="btn text-white">Download app</button>
+                <a href="/dashboard" className="btn text-white">Get stared</a>
               </div>
               <div className="md:w-1/2 pb-10" data-aos="fade-up">
                 <Image src="/img3.png" alt="" width={1000} height={1000} className="m-auto w-[95%]" />
@@ -72,7 +72,7 @@ export default async function page() {
           <div className="blob-bottom"></div>
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div data-aos="fade-up" className="mb-12 md:w-1/2">
+              <div data-aos="fade-up" className="md:w-1/2">
                 <Image src="/img4.png" alt="" width={1000} height={1000} className="w-[90%] mx-auto relative z-10" />
               </div>
               <div data-aos="fade-down" className="text-center md:text-left md:w-1/2 md:ml-20 relative z-10">
@@ -140,7 +140,7 @@ export default async function page() {
               </div>
             </div>
             <div>
-              <div className="w-3/5 m-auto text-center">
+              <div className="w-full md:w-3/5 m-auto text-center">
                 <p className="text-xl text-white">"We've had positive feedback from all our users so far. We take our user feedbacks seriously and use he to add new features to the app. Do share your feedback if you have any"</p>
                 <h4 className="text-color-secondary mt-6">Makin Nesus</h4>
                 <p className="text-white">ISO developer</p>

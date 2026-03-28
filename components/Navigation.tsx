@@ -76,6 +76,9 @@ export function Navigation() {
                             {item.label}
                         </Link>
                     ))}
+                    <div className="mt-2">
+                        <Link href="/dashboard" className='text-sm px-5 py-[10px] poppins-medium rounded duration-500 roboto-regula transiton-all text-white font-bold bg-color-secondary hover:text-black/80 hover:bg-white/80'>Free Trial</Link>
+                    </div>
                 </nav>
             </div>
         </div>
