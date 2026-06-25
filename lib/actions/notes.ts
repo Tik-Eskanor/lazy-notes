@@ -32,6 +32,46 @@ export const createNote = async (prevState: unknown, formData: FormData) => {
 
 }
 
+export async function transcribeAudio(formData: FormData) {
+    try {
+      const file = formData.get("audio") as File;
+      if (!file) {
+        throw new Error("No audio file found in the request.");
+      }
+  
+      // 1. Convert the file into an ArrayBuffer and then a Buffer
+      const arrayBuffer = await file.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+  
+      // 2. Format the data as required by the Gemini API for inline data
+      const audioPart = {
+        inlineData: {
+          data: buffer.toString("base64"),
+          mimeType: file.type || "audio/webm",
+        },
+      };
+  
+      // 3. Call the Gemini model (gemini-2.5-flash is ideal for fast text/audio tasks)
+      const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
+
+     const result = await model.generateContent([
+        audioPart,
+        { text: "Please provide an accurate, word-for-word transcription of this audio without adding any introductory or concluding remarks." },
+      ]);
+    
+      if (!result) {
+          console.log(result)
+        throw new Error("Gemini returned an empty response.");
+      }
+  
+      console.log(result.response.text())
+      return { success: true, text: result.response.text().trim() };
+    } catch (error: any) {
+      console.error("Gemini Transcription error:", error);
+      return { success: false, error: "Failed to transcribe audio with Gemini" };
+    }
+  }
+
 
 
 type Prop = {
@@ -161,5 +201,7 @@ export const createNoteFromAi = async (prevState: unknown, text: string) => {
         console.log(error)
     }
 }
+
+
 
 

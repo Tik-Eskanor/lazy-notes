@@ -9,6 +9,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import UpdateBtn from "./UpdateBtn"
 import { Note } from "@/lib/generated/prisma"
 import AiModal from "./AiModal"
+import AudioRecorder from "./AudioRecorder"
 
 type Prop = {
     notes: Note[]
@@ -63,18 +64,30 @@ export default function NoteTextInput({ notes }: Prop) {
         router.push(currentUrl + "&aiMode=true")
     }
 
+    const handleRecordComplete = (scannedAudio:string|undefined) => {
+        if (!scannedAudio) {
+           toast.error("Ai had problem scanning audio: Try again")
+        }else{
+             setTexts(scannedAudio)
+             toast.error("Audio scanned successfully")
+        }
+       
+      }
+
     return (
         <>
             <form ref={formRef} action={formAction} className="w-full">
                 <div className="flex justify-between mb-3 items-center">
                     <div className="flex gap-3">
                         <Button disabled={isPending} variant="outline" className="text-xs font-medium"> {isPending ? <><Loader2 className="animate-spin" /></> : "New Note"} </Button>
+                    <div><AudioRecorder onRecordComplete={handleRecordComplete} /></div>
+
                         <div className={`${noteId ? "block" : "hidden"}`}><UpdateBtn id={noteData?.id || ""} text={text} author={noteData?.authorId || ""} /></div>
                         {noteId && <Button onClick={url} type="button" variant="outline" className="text-xs font-medium">Ask AI</Button>}
                     </div>
                     {noteId && (<div onClick={clearNote} className="border border-grey-900 rounded p-1 cursor-pointer"><X size={15} /></div>)}
                 </div>
-                <textarea
+                <textarea 
                     onChange={(e) => setTexts(e.target.value)} readOnly={isPending} name="text" defaultValue={text} placeholder="Type your notes here" required className="w-full outline-0 min-h-[50vh] border border-gary-300 p-4 rounded shadow shadow-white/50" />
             </form>
 
