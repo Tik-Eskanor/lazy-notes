@@ -219,7 +219,7 @@ export default async function page() {
             </div>
           </div>
         </section>
-        <section id="contact">
+        {/* <section id="contact">
           <div className="container mx-auto px-4 py-20">
             <div className="text-center mb-20 m-auto md:w-1/2">
               <h4 className="text-color-secondary mb-4 font-bold">Have A Question</h4>
@@ -238,7 +238,7 @@ export default async function page() {
               </div>
             </form>
           </div>
-        </section>
+        </section> */}
 
         <section id="footer">
           <div className="bg-color-primary-dark text-white">
