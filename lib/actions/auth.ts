@@ -61,19 +61,25 @@ export async function signUp(prevState: unknown, formData: FormData) {
         const { auth } = await createClient()
         const { data, error } = await auth.signUp(dataObj)
 
-        const userId = data.user?.id
-        if (!userId) return { errorMessage: "Error signing up" }
-
         if (error) {
+            console.error("Supabase Auth Error:", error)
             return { errorMessage: error.message }
         }
 
-        await db.user.create({
-            data: {
-                id: userId,
-                email: dataObj.email
-            }
-        })
+        const userId = data.user?.id
+        if (!userId) return { errorMessage: "Error signing up" }
+
+        try {
+            await db.user.create({
+                data: {
+                    id: userId,
+                    email: dataObj.email
+                }
+            })
+        } catch (dbError) {
+            console.error("Prisma Database Sync Error:", dbError)
+            return { errorMessage: "Account created, but failed to sync user profile database." }
+        }
 
         return { errorMessage: null }
     }

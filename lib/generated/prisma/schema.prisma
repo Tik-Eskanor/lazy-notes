@@ -24,5 +24,5 @@ model User {
   email     String   @unique
   notes     Note[]
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 }
